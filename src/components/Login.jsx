@@ -1,7 +1,21 @@
+import { useState } from "react";
+
 export default function Login() {
+  const [enteredState, setEnteredState] = useState({
+    email: '',
+    password: ''
+  });
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Submitted!");
+    console.log("Details: ", enteredState);
+  }
+
+  const handleInputChange = (identifier, value) => {
+    setEnteredState(prevState => ({
+      ...prevState,
+      [identifier]: value
+    }))
   }
 
   return (
