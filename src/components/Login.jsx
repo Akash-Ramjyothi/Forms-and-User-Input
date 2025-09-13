@@ -6,16 +6,16 @@ export default function Login() {
     password: ''
   });
 
-  const handleSubmit = (event) => {
+  const handleSubmit = () => {
     event.preventDefault();
     console.log("Details: ", enteredState);
   }
 
   const handleInputChange = (identifier, value) => {
-    setEnteredState(prevState => ({
+    setEnteredState((prevState) => ({
       ...prevState,
       [identifier]: value
-    }))
+    }));
   }
 
   return (
@@ -26,12 +26,12 @@ export default function Login() {
       <div className="control-row">
         <div className="control no-margin">
           <label htmlFor="email">Email</label>
-          <input id="email" type="email" name="email" />
+          <input id="email" type="email" name="email" onChange={(event) => handleInputChange('email', event.target.value)} />
         </div>
 
         <div className="control no-margin">
           <label htmlFor="password">Password</label>
-          <input id="password" type="password" name="password" />
+          <input id="password" type="password" name="password" onChange={(event) => handleInputChange('password', event.target.value)} />
         </div>
       </div>
 
