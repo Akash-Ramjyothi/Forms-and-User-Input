@@ -9,6 +9,7 @@ export default function Signup() {
         data.acquisition = aquisitionChannel;
 
         console.log('🚀 data: ', data);
+        event.target.reset();
     }
 
     return (
