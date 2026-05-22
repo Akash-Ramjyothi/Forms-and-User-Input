@@ -6,8 +6,16 @@ function App() {
   return (
     <>
       <Header />
-      <main>
-        <Login />
+
+      <main className="app-container">
+        <section className="auth-section">
+          <div className="auth-wrapper">
+            <Login />
+
+            {/* Uncomment when signup flow is required */}
+            {/* <Signup /> */}
+          </div>
+        </section>
       </main>
     </>
   );
