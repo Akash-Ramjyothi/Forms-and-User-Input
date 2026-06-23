@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import Input from './Input.jsx'
 
 const INITIAL_FORM_STATE = {
   email: "",
@@ -82,55 +83,31 @@ export default function Login() {
       <h2>Login</h2>
 
       <div className="control-row">
-        <div className="control no-margin">
-          <label htmlFor="email">Email</label>
 
-          <input
-            id="email"
-            type="email"
-            name="email"
-            ref={emailRef}
-            value={formData.email}
-            onChange={(event) =>
-              handleInputChange("email", event.target.value)
-            }
-            onBlur={() => handleInputBlur("email")}
-            placeholder="Enter your email"
-            autoComplete="email"
-            required
-          />
+        <Input
+          label="Email"
+          id="email"
+          type="email"
+          name="email"
+          value={enteredValues.email}
+          onChange={(event) =>
+            handleInputChange("email", event.target.value)
+          }
+          onBlur={() => handleInputBlur("email")}
+        />
 
-          {emailIsInvalid && (
-            <div className="control-error">
-              <p>Please enter a valid email address.</p>
-            </div>
-          )}
-        </div>
+        <Input
+          label="Password"
+          id="password"
+          type="password"
+          name="password"
+          value={enteredValues.password}
+          onChange={(event) =>
+            handleInputChange("password", event.target.value)
+          }
+          onBlur={() => handleInputBlur("email")}
+        />
 
-        <div className="control no-margin">
-          <label htmlFor="password">Password</label>
-
-          <input
-            id="password"
-            type="password"
-            name="password"
-            ref={passwordRef}
-            value={formData.password}
-            onChange={(event) =>
-              handleInputChange("password", event.target.value)
-            }
-            onBlur={() => handleInputBlur("password")}
-            placeholder="Enter your password"
-            autoComplete="current-password"
-            required
-          />
-
-          {passwordIsInvalid && (
-            <div className="control-error">
-              <p>Password must be at least 6 characters long.</p>
-            </div>
-          )}
-        </div>
       </div>
 
       <p className="form-actions">
